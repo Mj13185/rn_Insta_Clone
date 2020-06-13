@@ -19,8 +19,36 @@ function HomeTabs({ navigation }) {
   
 
   return (
-    <Tab.Navigator initialRouteName="Home">
-    <Tab.Screen name="Feeds" component={FeedsTab} />
+    <Tab.Navigator initialRouteName="Feeds"
+    screenOptions={({ route }) => ({
+      
+      tabBarIcon: ({ focused, size }) => {
+        let iconName;
+
+        if (route.name === 'Feeds') {
+          iconName = focused ? 'home': 'home';
+        } else if (route.name === 'Search') {
+          iconName = focused ? 'search' : 'search';
+        }else if (route.name === 'AddMedia') {
+          iconName = focused ? 'plus-circle' : 'plus-circle';
+        }else if (route.name === 'Likes') {
+          iconName = focused ? 'heart' : 'heart';
+        }else if (route.name === 'Profile') {
+          iconName = focused ? 'user' : 'user';
+        }
+
+        // You can return any component that you like here!
+        return <Icon name={iconName} size={size}/>;
+      },
+    })}
+    tabBarOptions={{
+      showLabel : false,
+      activeTintColor: 'blue',
+      inactiveTintColor: 'gray',
+    }}
+
+    >
+    <Tab.Screen name="Feeds" component={FeedsTab}/>
     <Tab.Screen name="Search" component={SearchTab} />
     <Tab.Screen name="AddMedia" component={AddMediaTab} />
     <Tab.Screen name="Likes" component={LikesTab} />
