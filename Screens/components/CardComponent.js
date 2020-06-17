@@ -25,7 +25,7 @@ export default class CardComponent extends React.Component {
     };
 
     return (
-      <Card>
+      <Card transparent>
         <CardItem>
           <Left>
             <Thumbnail source={require('../../assets/images/me.jpg')} />

@@ -1,15 +1,19 @@
 import * as React from 'react';
-import {Button, View, Text} from 'react-native';
+import {View, Text, TouchableOpacity, Dimensions} from 'react-native';
+import {Button, Header, Item, Input} from 'native-base';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Feather';
+import IonIcons from 'react-native-vector-icons/Ionicons';
+import AntIcon from 'react-native-vector-icons/AntDesign';
 
 import ProfileTab from './Screens/ProfileTab';
 import LikesTab from './Screens/LikesTab';
 import AddMediaTab from './Screens/AddMediaTab';
 import SearchTab from './Screens/SearchTab';
 import FeedsTab from './Screens/FeedsTab';
+import {ScreenStackHeaderLeftView} from 'react-native-screens';
 
 const FeedStack = createStackNavigator();
 const SearchStack = createStackNavigator();
@@ -42,23 +46,62 @@ function FeedStackScreen() {
   );
 }
 function SearchStackScreen() {
+  const screenWidth = Math.round(Dimensions.get('window').width);
+  const screenHeight = Math.round(Dimensions.get('window').height);
+
   return (
     <SearchStack.Navigator>
-      <SearchStack.Screen name="Profile" component={SearchTab} />
+      <SearchStack.Screen
+        name="Search"
+        component={SearchTab}
+        options={{
+          title: null,
+          headerLeft: () => (
+            <View
+              style={{
+                paddingLeft: 10,
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: screenWidth,
+                padding: 10,
+              }}>
+              <Button
+                transparent
+                style={{
+                  height: 35,
+                }}>
+                <Item style={{padding: 10}}>
+                  <Icon name="search" style={{fontSize: 25, color: '#000'}} />
+                  <Input
+                    placeholder="Search"
+                    style={{fontSize: 18, paddingLeft: 10, color: '#d9d9d9'}}
+                  />
+                </Item>
+              </Button>
+            </View>
+          ),
+          headerRight: () => (
+            <AntIcon
+              name="scan1"
+              style={{fontSize: 25, color: '#000', paddingRight: 10}}
+            />
+          ),
+        }}
+      />
     </SearchStack.Navigator>
   );
 }
 function AddMediaStackScreen() {
   return (
     <AddMediaStack.Navigator>
-      <AddMediaStack.Screen name="Profile" component={AddMediaTab} />
+      <AddMediaStack.Screen name="Add Media" component={AddMediaTab} />
     </AddMediaStack.Navigator>
   );
 }
 function LikesStackScreen() {
   return (
     <LikesStack.Navigator>
-      <LikesStack.Screen name="Profile" component={LikesTab} />
+      <LikesStack.Screen name="Likes" component={LikesTab} />
     </LikesStack.Navigator>
   );
 }
@@ -71,7 +114,23 @@ function ProfileStcakScreen() {
         options={{
           title: null,
           headerLeft: () => (
-            <Icon name="camera" size={25} style={{paddingLeft: 15}} />
+            <View
+              style={{
+                flex: 1,
+                flexDirection: 'row',
+                paddingLeft: 10,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <TouchableOpacity>
+                <Text style={{fontSize: 18}}> mj_choudhry </Text>
+              </TouchableOpacity>
+              <IonIcons
+                name="ios-arrow-down"
+                size={15}
+                style={{paddingLeft: 5}}
+              />
+            </View>
           ),
           headerRight: () => (
             <Icon name="menu" size={25} style={{paddingRight: 15}} />

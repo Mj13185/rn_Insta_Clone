@@ -114,9 +114,7 @@ class ProfileTab extends Component {
       <Container style={styles.container}>
         <Content>
           <View style={{paddingTop: 10}}>
-            {/** User Photo Stats**/}
             <View style={{flexDirection: 'row'}}>
-              {/**User photo takes 1/3rd of view horizontally **/}
               <View
                 style={{
                   flex: 1,
@@ -129,9 +127,7 @@ class ProfileTab extends Component {
                 />
               </View>
 
-              {/**User Stats take 2/3rd of view horizontally **/}
               <View style={{flex: 3}}>
-                {/** Stats **/}
                 <View
                   style={{
                     flexDirection: 'row',
@@ -164,6 +160,21 @@ class ProfileTab extends Component {
             </View>
           </View>
 
+          <View style={{padding: 10}}>
+            <Button
+              transparent
+              style={{
+                height: 30,
+                borderColor: '#808080',
+                borderWidth: 1,
+                borderRadius: 5,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Text style={{fontWeight: '700'}}> Edit Profile</Text>
+            </Button>
+          </View>
+
           <View>
             <View
               style={{
@@ -186,39 +197,15 @@ class ProfileTab extends Component {
                 transparent
                 active={this.state.activeIndex == 1}>
                 <Icon
-                  name="list"
+                  name="person-pin"
+                  type="MaterialIcons"
                   style={[
                     {fontSize: 32},
                     this.state.activeIndex == 1 ? {} : {color: 'grey'},
                   ]}
                 />
               </Button>
-              <Button
-                onPress={() => this.segmentClicked(2)}
-                transparent
-                active={this.state.activeIndex == 2}>
-                <Icon
-                  name="bookmark"
-                  style={this.state.activeIndex == 2 ? {} : {color: 'grey'}}
-                />
-              </Button>
-              <Button
-                onPress={() => this.segmentClicked(3)}
-                transparent
-                last
-                active={this.state.activeIndex == 3}>
-                <Icon
-                  name="people"
-                  style={[
-                    {fontSize: 32},
-                    this.state.activeIndex == 3 ? {} : {color: 'grey'},
-                  ]}
-                />
-              </Button>
             </View>
-
-            {/** Height =width/3 so that image sizes vary according to size of the phone yet remain squares **/}
-
             {this.renderSection()}
           </View>
         </Content>
@@ -234,26 +221,3 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
 });
-
-{
-  /**  // <FlatList
-            //     horizontal={false}
-            //     numColumns={3}
-            //     data={[{ key: 'a' }, { key: 'b' }, { key: 'c' }, { key: 'd' }, { key: 'e' }, { key: 'f' }, { key: 'g' }, { key: 'h' }, { key: 'i' }, { key: 'j' }, { key: 'k' }, { key: 'l' }, { key: 'm' }, { key: 'n' }, { key: 'o' }]}
-            //     renderItem={({ item, index }) =>
-            //         <View style={[{ width: (width) / 3 }, { height: (width) / 3 }, { marginBottom: 2 }, index % 3 !== 0 ? { paddingLeft: 2 } : { paddingLeft: 0 }]}>
-            //             <Image style={{
-            //                 flex: 1,
-            //                 alignSelf: 'stretch',
-            //                 width: undefined,
-            //                 height: undefined,
-
-            //             }}
-            //                 source={images[index]}>
-            //             </Image>
-
-            //         </View>
-            //     }//end render item
-            // />
- **/
-}
