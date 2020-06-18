@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Image,
   Dimensions,
+  ScrollView,
   FlatList,
 } from 'react-native';
 
@@ -24,6 +25,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 var {height, width} = Dimensions.get('window');
 
 import CardComponent from '../Screens/components/CardComponent';
+import StoriesCardComponent from '../Screens/components/StoriesCardComponent';
 
 var images = [
   require('../assets/feed_images/1.jpg'),
@@ -173,6 +175,24 @@ class ProfileTab extends Component {
               }}>
               <Text style={{fontWeight: '700'}}> Edit Profile</Text>
             </Button>
+          </View>
+          <View style={{height: 80}}>
+            <ScrollView
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={{
+                alignItems: 'center',
+                paddingStart: 5,
+                paddingEnd: 5,
+              }}>
+              <StoriesCardComponent imageUri="1" storiesName="Trip" />
+              <StoriesCardComponent imageUri="2" storiesName="Mike" />
+              <StoriesCardComponent imageUri="3" storiesName="Bella" />
+              <StoriesCardComponent imageUri="4" storiesName="Alice" />
+              <StoriesCardComponent imageUri="5" storiesName="John" />
+              <StoriesCardComponent imageUri="6" storiesName="Charollete" />
+              <StoriesCardComponent imageUri="7" storiesName="Viki" />
+            </ScrollView>
           </View>
 
           <View>

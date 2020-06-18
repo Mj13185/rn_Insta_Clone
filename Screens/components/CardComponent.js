@@ -28,9 +28,12 @@ export default class CardComponent extends React.Component {
       <Card transparent>
         <CardItem>
           <Left>
-            <Thumbnail source={require('../../assets/images/me.jpg')} />
+            <Thumbnail
+              source={require('../../assets/images/me.jpg')}
+              style={{height: 37, width: 37}}
+            />
             <Body>
-              <Text>Mj Choudhry</Text>
+              <Text style={{fontSize: 15}}>Mj Choudhry</Text>
               <Text note>Gurgaon</Text>
             </Body>
           </Left>
@@ -85,13 +88,12 @@ export default class CardComponent extends React.Component {
           </Right>
         </CardItem>
 
-        <CardItem style={{height: 20}}>
-          <Text>{this.props.likes} </Text>
+        <CardItem style={{height: 15}}>
+          <Text style={{fontWeight: 'bold'}}>{this.props.likes} </Text>
         </CardItem>
         <CardItem>
-          <Body />
           <Text>
-            <Text style={{fontWeight: '900'}}>varun</Text>
+            <Text style={{fontWeight: 'bold'}}>Mj choudhry </Text>
             Ea do Lorem occaecat laborum do. Minim ullamco .
           </Text>
         </CardItem>
